@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <attribute name="quantite" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="compose" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recette" inverseName="estComposee" inverseEntity="Recette"/>
+    </entity>
+    <entity name="Planning" representedClassName="Planning" syncable="YES" codeGenerationType="class">
+        <attribute name="nomPlanning" optional="YES" attributeType="String"/>
+        <relationship name="estCompose" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recette" inverseName="compose" inverseEntity="Recette"/>
+    </entity>
+    <entity name="Recette" representedClassName="Recette" syncable="YES" codeGenerationType="class">
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <relationship name="compose" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Planning" inverseName="estCompose" inverseEntity="Planning"/>
+        <relationship name="estComposee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="compose" inverseEntity="Ingredient"/>
+    </entity>
+    <elements>
+        <element name="Ingredient" positionX="-410.48828125" positionY="-167.29296875" width="128" height="90"/>
+        <element name="Planning" positionX="-94.4140625" positionY="-225.8828125" width="128" height="75"/>
+        <element name="Recette" positionX="-54" positionY="9" width="128" height="90"/>
+    </elements>
+</model>
